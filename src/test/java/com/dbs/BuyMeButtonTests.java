@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class BuyMeButtonTests {
 
+    // This is a simple unit test, using the @DisplayName annotation to give it a better description
     @Test
     @DisplayName("Upon creation a new BuyMeButton should be disabled")
     void newButtonShouldBeDisabled() {
@@ -19,6 +20,7 @@ class BuyMeButtonTests {
     }
 
 
+    // This is a set of nested tests, taking advantage of common settings.
     @Nested
     @DisplayName("Given a BuyMeButton instance")
     class EnableAndDisabledButtonTests {
