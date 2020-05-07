@@ -14,8 +14,4 @@ public class VendingMachine {
         return messageDisplay.getCurrentMessage();
     }
 
-
-    public void buyMeButtonPressed(BuyMeButton buyMeButton) {
-        //  TODO: This should do something
-    }
 }
