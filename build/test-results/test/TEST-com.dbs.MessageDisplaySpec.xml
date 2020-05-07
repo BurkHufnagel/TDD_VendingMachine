@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dbs.MessageDisplaySpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-06T18:48:02" hostname="ATL42BTH111121.attlocal.net" time="0.029">
+  <properties/>
+  <testcase name="When first created, it should display the default message" classname="com.dbs.MessageDisplaySpec" time="0.029"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
