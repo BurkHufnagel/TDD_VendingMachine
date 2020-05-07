@@ -24,7 +24,7 @@ class BuyMeButtonTests {
     @Nested
     @DisplayName("Given a BuyMeButton instance")
     class EnableAndDisabledButtonTests {
-        TestableVendingMachine machine = new TestableVendingMachine();
+        TestableVendingMachine machine = new TestableVendingMachine(null);
         BuyMeButton button = new BuyMeButton(machine);
 
         @Test
@@ -54,6 +54,10 @@ class BuyMeButtonTests {
 
     class TestableVendingMachine extends VendingMachine {
         BuyMeButton pressedButton = null;
+
+        TestableVendingMachine(MessageDisplay display) {
+            super(display);
+        }
 
         @Override
         public void buyMeButtonPressed(BuyMeButton buyMeButton) {

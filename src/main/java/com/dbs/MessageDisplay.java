@@ -1,7 +1,8 @@
 package com.dbs;
 
 public class MessageDisplay {
-    String currentMessage = "";
+    public static final String DEFAULT_MESSAGE = "Initialized";
+    private String currentMessage = DEFAULT_MESSAGE;
 
 
     public void setDisplayMessage(String message) {

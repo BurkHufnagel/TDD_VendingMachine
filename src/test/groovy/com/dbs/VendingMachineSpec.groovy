@@ -6,18 +6,18 @@ import spock.lang.Specification
 class VendingMachineSpec extends Specification {
 
     // A Spock version of the JUnit test in VendingMachineTest.java
-    def "The message returned by the display should be the same as the message sent to the dislpay"() {
+    def "The message sent to the display should be the same as the message sent to the vending machine"() {
         given: "an instance of VendingMachine"
-            def machine = new VendingMachine();
+        def mockDisplay = Mock( MessageDisplay )
+        def machine = new VendingMachine( mockDisplay )
 
-        and: "a message is sent to the display"
-            def expectedMessage = "Smoke test"
+        and: "a message that should be sent to the display"
+        def expectedMessage = "Smoke test"
+
+        when: "the vending machine is told to send a message to the display"
             machine.displayMessage( expectedMessage )
 
-        when: "the the currently displayed message is retrieved"
-            def retrievedMessage = machine.getCurrentlyDisplayedMessage()
-
-        then: "the retrieved message should match the sent message"
-            expectedMessage == retrievedMessage
+        then: "the message sent to the display should be the same as the message sent to the vending machine"
+            1 * mockDisplay.setDisplayMessage( expectedMessage )
      }
 }

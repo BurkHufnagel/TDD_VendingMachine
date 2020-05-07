@@ -4,16 +4,21 @@ import spock.lang.Specification
 
 
 class BuyMeButtonSpec extends Specification{
-    def machine = new TestableVendingMachine()
-    def button = new BuyMeButton(machine)
+    def machine
+    def button
 
+
+    def setup() {
+        machine = new TestableVendingMachine(null)
+        button = new BuyMeButton(machine)
+    }
 
     def "Upon creation a new BuyMeButton should be disabled"() {
         when: "a new BuyMeButton is created"
         def button = new BuyMeButton(null)
 
         then: "it should be disabled by default"
-        false == button.isEnabled()
+        button.isEnabled() == false
     }
 
     def "When an enabled button is pushed, it should notify the vending machine"() {
@@ -41,19 +46,20 @@ class BuyMeButtonSpec extends Specification{
 
 
     class TestableVendingMachine extends VendingMachine {
-        BuyMeButton pressedButton = null;
+        BuyMeButton pressedButton = null
+
+        TestableVendingMachine(MessageDisplay display) {
+            super(display)
+        }
+
 
         @Override
         public void buyMeButtonPressed(BuyMeButton buyMeButton) {
-            pressedButton = buyMeButton;
+            pressedButton = buyMeButton
         }
 
         boolean wasButtonPressed(BuyMeButton button) {
-            return pressedButton == button;
-        }
-
-        void clearPressedButton() {
-            pressedButton = null;
+            return pressedButton == button
         }
     }
 }

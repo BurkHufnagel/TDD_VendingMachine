@@ -1,8 +1,12 @@
 package com.dbs;
 
 public class VendingMachine {
-    private final MessageDisplay messageDisplay = new MessageDisplay();
-    private final CoinDispenser dispenser = new CoinDispenser();
+    private MessageDisplay messageDisplay;
+
+
+    public VendingMachine(MessageDisplay messageDisplay) {
+        this.messageDisplay = messageDisplay;
+    }
 
 
     public void displayMessage( String message ) {
@@ -10,8 +14,7 @@ public class VendingMachine {
     }
 
 
-    public String getCurrentlyDisplayedMessage() {
-        return messageDisplay.getCurrentMessage();
+    public void buyMeButtonPressed(BuyMeButton buyMeButton) {
+        //  Needs to do something
     }
-
 }
