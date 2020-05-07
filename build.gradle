@@ -1,8 +1,9 @@
-apply plugin: 'java'
-apply plugin: 'groovy'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'application'
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'idea'
+    id 'eclipse'
+}
 
 sourceCompatibility = 1.8
 
@@ -12,11 +13,12 @@ repositories {
 }
 
 dependencies {
+    // Support for JUnit 4 (vintage) and 5 (Jupiter)
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
 
-    //	// Support the Spock BDD framework
+    // Support the Spock BDD framework
     testImplementation 'org.codehaus.groovy:groovy-all:2.5.11'
 
     // Use the awesome Spock testing and specification framework
@@ -24,14 +26,15 @@ dependencies {
     testImplementation 'com.athaydes:spock-reports:1.7.1'
 
     // Mocking or Spying with Spock requires a code generation library.
-    testRuntime 'org.objenesis:objenesis:3.1'
-    testRuntime 'net.bytebuddy:byte-buddy:1.10.10'
+    testRuntimeOnly 'org.objenesis:objenesis:3.1'
+    testRuntimeOnly 'net.bytebuddy:byte-buddy:1.10.10'
 
-    // if you don't already have slf4j-api and an implementation of it in the classpath, add this!
+    // If you don't already have slf4j-api and an implementation of it in the classpath, add this!
     testImplementation 'org.slf4j:slf4j-api:1.7.13'
     testImplementation 'org.slf4j:slf4j-simple:1.7.13'
 }
 
+// Required for JUnit 5
 test {
     useJUnitPlatform()
 }
